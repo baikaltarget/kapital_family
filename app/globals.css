@@ -3,16 +3,30 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Literata";
-  src: url("/fonts/literata-cyrillic-400-normal.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Onest";
+  src: url("/fonts/onest-cyrillic-500-normal.woff2") format("woff2");
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Literata";
-  src: url("/fonts/literata-cyrillic-600-normal.woff2") format("woff2");
+  font-family: "Onest";
+  src: url("/fonts/onest-cyrillic-600-normal.woff2") format("woff2");
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Onest";
+  src: url("/fonts/onest-cyrillic-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Onest";
+  src: url("/fonts/onest-cyrillic-800-normal.woff2") format("woff2");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -39,15 +53,30 @@
 }
 
 :root {
-  --paper: #f6f7f3;
+  /* Палитра от логотипа: зелёный лист — основа, синий — бассейн, розовый — точечно */
+  --paper: #f3f7f2;
   --surface: #ffffff;
-  --ink: #17241d;
-  --muted: #55655c;
-  --line: #dfe4da;
-  --massage: #2c7a4d;
-  --pool: #1c6b97;
-  --kids: #b03462;
-  --accent: var(--massage);
+  --ink: #12301f;
+  --muted: #53685c;
+  --line: #d9e4da;
+
+  --brand: #2c6b43;
+  --brand-dark: #0f3d28;
+  --brand-soft: #e7f1e8;
+
+  --massage: #2c6b43;
+  --pool: #1878b0;
+  --pool-soft: #e4f1f9;
+  --kids: #c52167;
+  --kids-soft: #fbe8f0;
+  --accent: var(--brand);
+
+  /* Форма: круглые плашки — от круглого козырька и зелёных ламелей на фасаде */
+  --r-pill: 999px;
+  --r-card: 22px;
+  --r-soft: 14px;
+  --shadow-card: 0 1px 2px rgba(18,48,31,.05), 0 12px 32px -14px rgba(18,48,31,.22);
+  --shadow-lift: 0 2px 6px rgba(18,48,31,.07), 0 26px 50px -22px rgba(18,48,31,.30);
 }
 
 html {
@@ -65,11 +94,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  font-family: Literata, Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+h1, h2, h3, h4 {
+  font-family: Onest, "Golos Text", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;
 }
+h1 { font-weight: 800; letter-spacing: -0.03em; }
 
 a:focus-visible,
 button:focus-visible,

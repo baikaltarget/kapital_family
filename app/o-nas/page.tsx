@@ -45,19 +45,34 @@ export default function Page() {
           </p>
         </div>
 
-        <aside>
-          <img
-            src="/img/kabinet-priema.webp"
-            alt="Кабинет приёма в центре здоровья «Капитал Фэмили», Ангарск"
-            width={1280}
-            height={960}
-            className="w-full rounded"
-          />
-          <p className="mt-2 text-sm text-[var(--muted)]">Кабинет приёма</p>
-          <NeedsData>
-            фотографии бассейна, массажного кабинета и занятий с людьми. Сейчас на сайте только три
-            фото помещений без людей — этого мало для главной и страниц услуг.
-          </NeedsData>
+        <aside className="space-y-6">
+          <figure className="overflow-hidden rounded-card shadow-card">
+            <img
+              src="/img/basseyn-bolshaya-chasha.webp"
+              alt="Большая чаша бассейна центра здоровья «FAMILY Академия», Ангарск"
+              width={1600}
+              height={1067}
+              className="w-full object-cover"
+            />
+            <figcaption className="px-4 py-3 text-sm text-[var(--muted)]">
+              Большая чаша бассейна
+            </figcaption>
+          </figure>
+
+          <figure className="overflow-hidden rounded-card bg-[var(--surface)] shadow-card">
+            <img
+              src="/img/diplom.webp"
+              alt="Диплом за первое место в конкурсе «Лучшие объекты социальной инфраструктуры» — за интерьер центра «FAMILY Академия»"
+              width={1100}
+              height={1467}
+              className="w-full object-cover"
+            />
+            <figcaption className="px-4 py-3 text-sm leading-relaxed text-[var(--muted)]">
+              Диплом 1-й степени конкурса «Лучшие объекты социальной инфраструктуры», номинация
+              «Реализованные интерьеры. Медицинские учреждения», 2018. Награду получил проект
+              центра, автор — архитектурное бюро VAAB.
+            </figcaption>
+          </figure>
         </aside>
       </div>
 

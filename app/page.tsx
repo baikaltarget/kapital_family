@@ -3,13 +3,12 @@ import Link from "next/link";
 import { site, servicesByHub, phoneHref, canonical } from "@/lib/site";
 import LeadForm from "@/components/LeadForm";
 import Faq from "@/components/Faq";
-import NeedsData from "@/components/NeedsData";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Центр здоровья «Капитал Фэмили» в Ангарске — массаж, бассейн, специалисты",
+  title: "Центр здоровья «FAMILY Академия» в Ангарске — массаж, бассейн, специалисты",
   description:
-    "Центр здоровья в Ангарске, 30-й микрорайон: массаж от 1000 ₽, бассейн и обучение плаванию от 650 ₽, прокол ушей с 9 месяцев, приём специалистов. Детский массаж с 1 месяца.",
+    "Центр здоровья в Ангарске, 30-й микрорайон: массаж от 800 ₽, бассейн и обучение плаванию от 650 ₽, прокол ушей от 700 ₽, приём специалистов. Детский массаж с 1 месяца.",
   alternates: { canonical: canonical("/") },
 };
 
@@ -19,24 +18,33 @@ const directions = [
     href: "/massazh/",
     color: "var(--massage)",
     title: "Массаж",
-    text: "Десять программ для взрослых и детей: общий, спины, лица, детский с первого месяца, реабилитация после травм и операций.",
-    price: "от 1000 ₽",
+    text: "Тринадцать программ для взрослых и детей: от общего массажа и лимфодренажного до детского с первого месяца и восстановления после травм.",
+    price: "от 800 ₽",
+    photo: "/img/kabinet-massazha.webp",
+    photoAlt: "Кабинет массажа в центре здоровья «FAMILY Академия» в Ангарске",
+    more: "Все программы массажа",
   },
   {
     hub: "basseyn",
     href: "/basseyn/",
     color: "var(--pool)",
     title: "Бассейн",
-    text: "Обучение плаванию для детей и взрослых, грудничковое плавание, аквааэробика, аренда чаши целиком.",
+    text: "Групповые тренировки и занятия один на один с тренером, свободное и грудничковое плавание, аквааэробика, аренда чаши целиком.",
     price: "от 650 ₽",
+    photo: "/img/basseyn-bolshaya-chasha.webp",
+    photoAlt: "Большая чаша бассейна центра «FAMILY Академия» в Ангарске",
+    more: "Расписание и цены",
   },
   {
     hub: "deti",
     href: "/prokol-ushey/",
     color: "var(--kids)",
     title: "Прокол ушей",
-    text: "Стерильным одноразовым пистолетом, детям с 9 месяцев и взрослым. Разметка показывается до прокола.",
-    price: "от 1000 ₽",
+    text: "Стерильным одноразовым пистолетом, детям с 9 месяцев и взрослым. Разметку показываем до прокола, до 9 отверстий в одном ухе.",
+    price: "от 700 ₽",
+    photo: "/img/kabinet-priema.webp",
+    photoAlt: "Кабинет приёма в центре здоровья «FAMILY Академия» в Ангарске",
+    more: "Как проходит прокол",
   },
 ];
 
@@ -53,137 +61,231 @@ export default function Home() {
 
   return (
     <>
-      {/* Первый экран */}
-      <section className="border-b border-[var(--line)] bg-[var(--surface)]">
-        <div className="wrap grid items-center gap-8 py-10 md:grid-cols-2 md:py-16">
-          <div>
-            <h1 className="font-display text-3xl leading-tight md:text-5xl">
-              {site.hero.h1}
-            </h1>
-            <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-[var(--muted)]">
-              {site.hero.lead}
-            </p>
+      {/* Первый экран — фото бассейна на всю ширину */}
+      <section className="relative isolate overflow-hidden bg-[var(--brand-dark)]">
+        <img
+          src="/img/hero-basseyn.webp"
+          alt="Бассейн центра здоровья «FAMILY Академия» в Ангарске"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(10,42,27,.93) 0%, rgba(10,42,27,.80) 42%, rgba(10,42,27,.30) 78%, rgba(10,42,27,.20) 100%)",
+          }}
+        />
+        <div className="wrap py-14 md:py-24">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/70">
+            Ангарск · 30-й микрорайон
+          </p>
+          <h1 className="mt-4 max-w-[19ch] font-display text-[2.1rem] text-white sm:text-5xl lg:text-[3.6rem]">
+            {site.hero.h1}
+          </h1>
+          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-white/85">
+            {site.hero.lead}
+          </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href={phoneHref}
-                className="rounded bg-[var(--massage)] px-6 py-3 font-medium text-white"
-              >
-                Позвонить и записаться
-              </a>
-              <Link
-                href="/tseny/"
-                className="rounded border border-[var(--line)] px-6 py-3 font-medium"
-              >
-                Смотреть цены
-              </Link>
-            </div>
+          <ul className="mt-8 flex flex-wrap gap-2.5">
+            {[
+              { t: "Плавание", href: "/basseyn/", c: "var(--pool)" },
+              { t: "Реабилитация", href: "/massazh/reabilitatsionnyy/", c: "var(--brand)" },
+              { t: "Массаж", href: "/massazh/", c: "var(--kids)" },
+            ].map((p) => (
+              <li key={p.t}>
+                <Link
+                  href={p.href}
+                  className="block rounded-pill px-5 py-2.5 font-medium text-white shadow-card transition hover:brightness-110"
+                  style={{ background: p.c }}
+                >
+                  {p.t}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-            <p className="mt-4 text-sm text-[var(--muted)]">
-              {site.org.address} · {site.org.hoursNeedsData ? "часы работы уточняются" : site.org.hours}
-            </p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href={phoneHref}
+              className="rounded-pill bg-white px-7 py-3.5 font-display text-lg font-semibold text-[var(--brand-dark)] shadow-lift transition hover:bg-white/90"
+            >
+              {site.org.phone}
+            </a>
+            <Link
+              href="/tseny/"
+              className="rounded-pill border border-white/45 px-7 py-3.5 font-medium text-white transition hover:bg-white/10"
+            >
+              Смотреть цены
+            </Link>
           </div>
-
-          <figure className="overflow-hidden rounded">
-            <img
-              src={site.hero.photo}
-              alt={site.hero.photoAlt}
-              width={1280}
-              height={960}
-              className="h-full w-full object-cover"
-            />
-          </figure>
         </div>
       </section>
 
-      {/* Направления */}
-      <section className="wrap py-12">
-        <h2 className="font-display text-2xl md:text-3xl">Три направления в одном здании</h2>
-        <p className="mt-2 max-w-[60ch] text-[var(--muted)]">
+      {/* Полоса фактов — ломает монотонность и снимает частые вопросы */}
+      <section className="border-b border-[var(--line)] bg-[var(--surface)]">
+        <ul className="wrap grid grid-cols-2 gap-x-6 gap-y-5 py-7 lg:grid-cols-4">
+          {[
+            { big: "с 1 месяца", small: "работаем с детьми с первых недель жизни" },
+            { big: "3 направления", small: "бассейн, массаж и приём — в одном здании" },
+            { big: "1-е место", small: "интерьер центра, «Реализованные интерьеры», 2018" },
+            { big: "30 мкр., д. 4", small: "своя парковка у входа" },
+          ].map((f) => (
+            <li key={f.big}>
+              <p className="font-display text-xl text-[var(--brand)]">{f.big}</p>
+              <p className="mt-1 text-sm leading-snug text-[var(--muted)]">{f.small}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Направления — карточками с фото */}
+      <section className="wrap py-14 md:py-16">
+        <h2 className="max-w-[24ch] font-display text-3xl md:text-4xl">
+          Три направления в одном здании
+        </h2>
+        <p className="mt-3 max-w-[56ch] text-lg text-[var(--muted)]">
           Записаться можно по одному телефону. Семье удобно, когда ребёнку занятие в бассейне, а
           взрослому массаж — в один приезд.
         </p>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {directions.map((d) => {
             const items = d.hub === "deti" ? [] : servicesByHub(d.hub);
             return (
               <article
                 key={d.href}
                 data-section={d.hub}
-                className="border-l-4 bg-[var(--surface)] p-6 md:p-8"
-                style={{ borderColor: d.color }}
+                className="group flex flex-col overflow-hidden rounded-card bg-[var(--surface)] shadow-card transition hover:shadow-lift"
               >
-                <div className="flex flex-wrap items-baseline justify-between gap-3">
-                  <h3 className="font-display text-2xl">
-                    <Link href={d.href} className="hover:underline">
-                      {d.title}
-                    </Link>
-                  </h3>
-                  <span className="font-display text-lg" style={{ color: d.color }}>
-                    {d.price}
-                  </span>
-                </div>
-                <p className="mt-2 max-w-[68ch] text-[var(--muted)]">{d.text}</p>
+                <Link href={d.href} className="block overflow-hidden">
+                  <img
+                    src={d.photo}
+                    alt={d.photoAlt}
+                    width={1600}
+                    height={1067}
+                    className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  />
+                </Link>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="font-display text-2xl">
+                      <Link href={d.href} className="hover:underline">
+                        {d.title}
+                      </Link>
+                    </h3>
+                    <span
+                      className="shrink-0 rounded-pill px-3 py-1 text-sm font-semibold text-white"
+                      style={{ background: d.color }}
+                    >
+                      {d.price}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[var(--muted)]">{d.text}</p>
 
-                {items.length > 0 && (
-                  <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-                    {items.slice(0, 6).map((s) => (
-                      <li key={s.slug}>
-                        <Link href={`/${s.hub}/${s.slug}/`} className="underline decoration-[var(--line)] underline-offset-4 hover:decoration-current">
-                          {s.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  {items.length > 0 && (
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {items.slice(0, 5).map((s) => (
+                        <li key={s.slug}>
+                          <Link
+                            href={`/${s.hub}/${s.slug}/`}
+                            className="block rounded-pill bg-[var(--paper)] px-3 py-1.5 text-sm transition hover:bg-[var(--brand-soft)]"
+                          >
+                            {s.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <Link
+                    href={d.href}
+                    className="mt-auto pt-5 font-medium underline underline-offset-4"
+                    style={{ color: d.color }}
+                  >
+                    {d.more}
+                  </Link>
+                </div>
               </article>
             );
           })}
         </div>
       </section>
 
-      {/* Приём специалистов */}
-      <section className="wrap pb-12">
-        <div className="border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
-          <h2 className="font-display text-2xl">Приём специалистов</h2>
-          <p className="mt-2 max-w-[68ch] text-[var(--muted)]">
-            В центре ведут приём врачи. Записаться можно по телефону — администратор подскажет, кто
-            принимает в ближайшие дни.
-          </p>
-          <NeedsData>
-            список специальностей и расписание приёма. Сейчас на сайте четыре карточки-заглушки на
-            странице «Специалисты» — заменим на реальных врачей, когда заказчик передаст имена, фото
-            и специальности.
-          </NeedsData>
-          <Link href="/spetsialisty/" className="mt-2 inline-block font-medium underline">
-            Кто принимает
-          </Link>
-        </div>
-      </section>
 
-      {/* О центре + фото */}
+      {/* О центре + награда за интерьер */}
       <section className="border-y border-[var(--line)] bg-[var(--surface)]">
-        <div className="wrap grid gap-8 py-12 md:grid-cols-2">
+        <div className="wrap grid items-center gap-10 py-14 md:grid-cols-[1.15fr,0.85fr] md:py-16">
           <div>
-            <h2 className="font-display text-2xl md:text-3xl">Центр здоровья для всей семьи</h2>
-            <div className="mt-4 space-y-3 text-[var(--muted)] leading-relaxed">
+            <h2 className="max-w-[18ch] font-display text-3xl md:text-4xl">
+              Центр здоровья для всей семьи
+            </h2>
+            <div className="mt-5 space-y-4 text-lg leading-relaxed text-[var(--muted)]">
               <p>{site.about.text[1]}</p>
               <p>Работаем со взрослыми и с детьми с первого месяца жизни.</p>
             </div>
-            <Link href="/o-nas/" className="mt-4 inline-block font-medium underline">
+
+            <div className="mt-7 rounded-card bg-[var(--brand-soft)] p-6">
+              <p className="font-display text-xl text-[var(--brand-dark)]">
+                Интерьер центра — 1-е место в конкурсе
+              </p>
+              <p className="mt-2 leading-relaxed text-[var(--brand-dark)]/80">
+                «Лучшие объекты социальной инфраструктуры», номинация «Реализованные интерьеры.
+                Медицинские учреждения», 2018. Награду получил проект нашего центра, автор —
+                архитектурное бюро VAAB.
+              </p>
+            </div>
+
+            <Link
+              href="/o-nas/"
+              className="mt-6 inline-block font-medium text-[var(--brand)] underline underline-offset-4"
+            >
               Подробнее о центре
             </Link>
           </div>
-          <figure>
+
+          <figure className="overflow-hidden rounded-card shadow-card">
             <img
-              src="/img/resepshn.webp"
-              alt="Ресепшн центра здоровья «Капитал Фэмили» в Ангарске"
-              width={1280}
-              height={960}
-              className="w-full rounded object-cover"
+              src="/img/holl-logotip.webp"
+              alt="Холл центра здоровья «FAMILY Академия» в Ангарске — интерьер, отмеченный первым местом в конкурсе"
+              width={1600}
+              height={1200}
+              className="aspect-[4/3] w-full object-cover"
             />
           </figure>
+        </div>
+      </section>
+
+      {/* Как выглядит центр */}
+      <section className="wrap py-14 md:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-display text-3xl md:text-4xl">Как выглядит центр</h2>
+          <Link
+            href="/basseyn/"
+            className="font-medium text-[var(--pool)] underline underline-offset-4"
+          >
+            Подробнее о бассейне
+          </Link>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {[
+            { src: "/img/basseyn-detskaya-chasha.webp", alt: "Детская чаша бассейна с игрушками", cap: "Детская чаша" },
+            { src: "/img/basseyn-zanyatie.webp", alt: "Занятие с детьми в бассейне с тренером", cap: "Занятия с тренером" },
+            { src: "/img/resepshn.webp", alt: "Ресепшн центра здоровья «FAMILY Академия»", cap: "Ресепшн" },
+            { src: "/img/vhod-tsentra.webp", alt: "Вход в центр здоровья «FAMILY Академия» в Ангарске", cap: "Вход со двора" },
+          ].map((g) => (
+            <figure key={g.src} className="overflow-hidden rounded-card bg-[var(--surface)] shadow-card">
+              <img
+                src={g.src}
+                alt={g.alt}
+                width={1600}
+                height={1067}
+                className="aspect-[4/3] w-full object-cover"
+              />
+              <figcaption className="px-4 py-3 text-sm text-[var(--muted)]">{g.cap}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
