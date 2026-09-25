@@ -4,6 +4,7 @@ import { site, servicesByHub, phoneHref, canonical } from "@/lib/site";
 import LeadForm from "@/components/LeadForm";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
+import Tight from "@/components/Tight";
 
 export const metadata: Metadata = {
   title: "Центр здоровья «FAMILY Академия» в Ангарске — массаж, бассейн, специалисты",
@@ -81,8 +82,8 @@ export default function Home() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/70">
             Ангарск · 30-й микрорайон
           </p>
-          <h1 className="mt-4 max-w-[19ch] font-display text-[2.1rem] text-white sm:text-5xl lg:text-[3.6rem]">
-            {site.hero.h1}
+          <h1 className="mt-4 max-w-[21ch] font-display text-[2.1rem] text-white sm:text-5xl lg:text-[3.55rem]">
+            <Tight>{site.hero.h1}</Tight>
           </h1>
           <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-white/85">
             {site.hero.lead}

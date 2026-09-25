@@ -14,7 +14,7 @@ const nav = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--surface)]/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--surface)]">
       <div className="wrap flex items-center justify-between gap-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-3 leading-tight">
           <Image
