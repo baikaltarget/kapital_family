@@ -33,7 +33,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       dateModified: p.date,
       url: canonical(`/blog/${p.slug}/`),
       mainEntityOfPage: canonical(`/blog/${p.slug}/`),
-      author: { "@type": "Organization", name: "Капитал Фэмили" },
+      author: { "@type": "Organization", name: "FAMILY Академия" },
       publisher: { "@id": `${site.site.url}/#organization` },
     },
     {

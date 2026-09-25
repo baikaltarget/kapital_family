@@ -5,9 +5,9 @@ import NeedsData from "@/components/NeedsData";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Специалисты центра здоровья «Капитал Фэмили» в Ангарске",
+  title: "Специалисты центра здоровья «FAMILY Академия» в Ангарске",
   description:
-    "Массажисты, тренеры по плаванию и врачи центра здоровья «Капитал Фэмили» в Ангарске, 30-й микрорайон. Запись на приём по телефону.",
+    "Массажисты, тренеры по плаванию и врачи центра здоровья «FAMILY Академия» в Ангарске, 30-й микрорайон. Запись на приём по телефону.",
   alternates: { canonical: canonical("/spetsialisty/") },
 };
 
@@ -16,7 +16,7 @@ export default function Page() {
     <div className="wrap pb-12">
       <Breadcrumbs items={[{ name: "Специалисты", href: "/spetsialisty/" }]} />
       <h1 className="font-display text-3xl leading-tight md:text-4xl">
-        Специалисты центра «Капитал Фэмили»
+        Специалисты центра «FAMILY Академия»
       </h1>
       <p className="mt-4 max-w-[64ch] text-lg text-[var(--muted)]">
         В центре работают массажисты, тренеры по плаванию и врачи. Записаться на приём можно по

@@ -6,9 +6,9 @@ import NeedsData from "@/components/NeedsData";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Цены на массаж, бассейн и прокол ушей в Ангарске | Капитал Фэмили",
+  title: "Цены на массаж, бассейн и прокол ушей в Ангарске | FAMILY Академия",
   description:
-    "Полный прайс центра здоровья «Капитал Фэмили» в Ангарске: массаж от 1000 ₽, занятие в бассейне от 650 ₽, аренда чаши 7500 ₽/час, прокол ушей от 1000 ₽.",
+    "Полный прайс центра здоровья «FAMILY Академия» в Ангарске: массаж от 800 ₽, занятие в бассейне от 650 ₽, аренда чаши 7500 ₽/час, прокол ушей от 700 ₽.",
   alternates: { canonical: canonical("/tseny/") },
 };
 
@@ -101,7 +101,7 @@ export default function Page() {
     <div className="wrap pb-12">
       <Breadcrumbs items={[{ name: "Цены", href: "/tseny/" }]} />
       <h1 className="font-display text-3xl leading-tight md:text-4xl">
-        Цены центра здоровья «Капитал Фэмили»
+        Цены центра здоровья «FAMILY Академия»
       </h1>
       <p className="mt-4 max-w-[64ch] text-lg text-[var(--muted)]">
         Полный прайс на массаж, занятия в бассейне и прокол ушей. Записаться можно по телефону{" "}

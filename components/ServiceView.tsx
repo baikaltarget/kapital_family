@@ -177,7 +177,25 @@ export function ServiceView({ hubSlug, slug }: { hubSlug: string; slug: string }
           {/* Цена */}
           <section className="mt-8 border-y border-[var(--line)] py-5">
             <h2 className="font-display text-xl">Стоимость</h2>
-            {s.options?.length ? (
+            {s.optionGroups?.length ? (
+              <div className="mt-3 space-y-5">
+                {s.optionGroups.map((g) => (
+                  <div key={g.title}>
+                    <h3 className="text-sm font-semibold">{g.title}</h3>
+                    <table className="mt-2 w-full text-sm">
+                      <tbody>
+                        {g.rows.map((o) => (
+                          <tr key={o.name} className="border-b border-[var(--line)] last:border-0">
+                            <td className="py-2 pr-4">{o.name}</td>
+                            <td className="py-2 text-right font-medium">{o.price}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ))}
+              </div>
+            ) : s.options?.length ? (
               <table className="mt-3 w-full text-sm">
                 <tbody>
                   {s.options.map((o) => (

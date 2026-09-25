@@ -122,7 +122,7 @@ async function sendEmail(text: string) {
     body: JSON.stringify({
       from,
       to: [to],
-      subject: "Заявка с сайта «Капитал Фэмили»",
+      subject: "Заявка с сайта «FAMILY Академия»",
       text,
     }),
   });
@@ -151,7 +151,7 @@ export async function POST(req: Request) {
   const { mark, reasons } = score(lead);
 
   const text = [
-    `${mark} <b>Заявка с сайта «Капитал Фэмили»</b>`,
+    `${mark} <b>Заявка с сайта «FAMILY Академия»</b>`,
     ``,
     `Имя: ${lead.name || "не указано"}`,
     `Телефон: ${lead.phone || "не указан"}`,

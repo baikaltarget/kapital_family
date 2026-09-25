@@ -2,7 +2,18 @@ import data from "@/content/site.json";
 
 export const site = data;
 
-export type Service = (typeof data.services)[number];
+type PriceRow = { name: string; price: string };
+
+/** Поля, которые есть не у каждой услуги, — чтобы TypeScript не ругался на необязательные. */
+export type Service = (typeof data.services)[number] & {
+  age?: string;
+  price?: number | null;
+  priceNote?: string;
+  priceDraft?: boolean;
+  needsData?: boolean;
+  options?: PriceRow[];
+  optionGroups?: { title: string; rows: PriceRow[] }[];
+};
 
 export function servicesByHub(hub: string) {
   return data.services.filter((s) => s.hub === hub);

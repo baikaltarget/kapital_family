@@ -5,9 +5,9 @@ import { canonical } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Блог центра здоровья «Капитал Фэмили» — массаж, плавание, дети",
+  title: "Блог центра здоровья «FAMILY Академия» — массаж, плавание, дети",
   description:
-    "Статьи о массаже, обучении плаванию и здоровье детей от специалистов центра «Капитал Фэмили» в Ангарске.",
+    "Статьи о массаже, обучении плаванию и здоровье детей от специалистов центра «FAMILY Академия» в Ангарске.",
   alternates: { canonical: canonical("/blog/") },
 };
 

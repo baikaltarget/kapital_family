@@ -30,8 +30,8 @@ export default function Page() {
             {[
               { href: "/basseyn/grudnichkovoe-plavanie/", t: "Грудничковое плавание — 1600 ₽" },
               { href: "/basseyn/plavanie-dlya-detey/", t: "Занятие для ребёнка с тренером — от 650 ₽" },
-              { href: "/massazh/detskiy/", t: "Детский массаж с 1 месяца — от 1000 ₽" },
-              { href: "/prokol-ushey/detyam/", t: "Прокол ушей ребёнку с 9 месяцев — от 1000 ₽" },
+              { href: "/massazh/detskiy/", t: "Детский массаж с 1 месяца — от 800 ₽" },
+              { href: "/prokol-ushey/detyam/", t: "Прокол ушей ребёнку с 9 месяцев — от 700 ₽" },
             ].map((i) => (
               <li key={i.href} className="flex gap-3">
                 <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ background: "var(--accent)" }} />

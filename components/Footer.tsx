@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="mt-20 border-t border-[var(--line)] bg-[var(--surface)]">
       <div className="wrap grid gap-8 py-10 md:grid-cols-3">
         <div>
-          <p className="font-display text-lg font-semibold">Капитал Фэмили</p>
+          <p className="font-display text-lg font-semibold">FAMILY Академия</p>
           <p className="mt-1 text-sm text-[var(--muted)]">Центр здоровья в Ангарске</p>
           <p className="mt-4 text-sm">{o.address}</p>
           <p className="mt-1 text-sm">

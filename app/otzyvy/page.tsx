@@ -5,9 +5,9 @@ import NeedsData from "@/components/NeedsData";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Отзывы о центре здоровья «Капитал Фэмили» в Ангарске",
+  title: "Отзывы о центре здоровья «FAMILY Академия» в Ангарске",
   description:
-    "Отзывы клиентов центра здоровья «Капитал Фэмили» в Ангарске о массаже, занятиях в бассейне и приёме специалистов.",
+    "Отзывы клиентов центра здоровья «FAMILY Академия» в Ангарске о массаже, занятиях в бассейне и приёме специалистов.",
   alternates: { canonical: canonical("/otzyvy/") },
 };
 
@@ -16,7 +16,7 @@ export default function Page() {
     <div className="wrap pb-12">
       <Breadcrumbs items={[{ name: "Отзывы", href: "/otzyvy/" }]} />
       <h1 className="font-display text-3xl leading-tight md:text-4xl">
-        Отзывы о центре «Капитал Фэмили»
+        Отзывы о центре «FAMILY Академия»
       </h1>
       <p className="mt-4 max-w-[64ch] text-lg text-[var(--muted)]">
         Здесь будут отзывы клиентов — из 2ГИС, Яндекс.Карт и мессенджеров.

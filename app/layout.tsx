@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.site.url),
   title: {
-    default: "Центр здоровья «Капитал Фэмили» в Ангарске — массаж, бассейн, специалисты",
+    default: "Центр здоровья «FAMILY Академия» в Ангарске — массаж, бассейн, специалисты",
     template: "%s",
   },
   description: site.site.description,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    siteName: "Капитал Фэмили",
+    siteName: "FAMILY Академия",
   },
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "@id": `${site.site.url}/#organization`,
-    name: "Капитал Фэмили",
+    name: "FAMILY Академия",
     alternateName: org.legalName,
     description: site.site.description,
     url: `${site.site.url}/`,

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site, phoneHref } from "@/lib/site";
 
 const nav = [
@@ -15,16 +16,27 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--surface)]/95 backdrop-blur">
       <div className="wrap flex items-center justify-between gap-4 py-3">
-        <Link href="/" className="leading-tight">
-          <span className="block font-display text-lg font-semibold">Капитал Фэмили</span>
-          <span className="block text-xs text-[var(--muted)]">Центр здоровья · Ангарск</span>
+        <Link href="/" className="flex shrink-0 items-center gap-3 leading-tight">
+          <Image
+            src="/img/logo.webp"
+            alt="FAMILY Академия — центр здоровья в Ангарске"
+            width={640}
+            height={334}
+            priority
+            className="h-10 w-auto sm:h-12"
+          />
+          <span className="hidden text-xs text-[var(--muted)] sm:block">
+            Центр здоровья
+            <br />
+            Ангарск
+          </span>
         </Link>
 
         <nav aria-label="Основное меню" className="hidden lg:block">
           <ul className="flex items-center gap-5 text-sm">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className="hover:text-[var(--massage)]">{n.label}</Link>
+                <Link href={n.href} className="hover:text-[var(--brand)]">{n.label}</Link>
               </li>
             ))}
           </ul>

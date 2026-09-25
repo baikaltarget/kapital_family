@@ -3,7 +3,7 @@ import { site, canonical } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Политика конфиденциальности | Капитал Фэмили, Ангарск",
+  title: "Политика конфиденциальности | FAMILY Академия, Ангарск",
   description:
     "Политика обработки персональных данных ООО «Капитал Фэмили»: какие данные собираются на сайте, зачем и как их удалить.",
   alternates: { canonical: canonical("/politika/") },
